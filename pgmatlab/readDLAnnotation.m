@@ -13,7 +13,7 @@ end
 
     function modeldata =  readModelData(fid)
         
-        modeltype = fread(fid, 1, 'char'); % bye in Java
+        modeltype = fread(fid, 1, 'char'); % byte in Java
 %         disp(['Model type: ' num2str(modeltype)])
 
         isbinary = fread(fid, 1, 'char'); % bye in Java
@@ -39,13 +39,13 @@ end
             case 0 % generic deep learning annotation
                 modeldata.predictions = data;
                 modeldata.classID = classnames;
-                modeldata.isbinary = isbinary;
+                modeldata.isdecision = isbinary;
                 modeldata.type = modeltype;
             case 1 % Sound Spot classifier. 
                 % Sound spot
                 modeldata.predictions = data;
                 modeldata.classID = classnames;
-                modeldata.isbinary = isbinary;
+                modeldata.isdecision = isbinary;
                 modeldata.type = modeltype;
 
             case 2 % dummy result
